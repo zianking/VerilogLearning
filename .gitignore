@@ -1,0 +1,11 @@
+#Verilator build files
+build/
+obj_dir/
+
+#generated files
+*.o
+*.a
+*.so
+
+#executable
+Vmux
