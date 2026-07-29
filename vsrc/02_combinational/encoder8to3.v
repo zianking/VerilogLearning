@@ -1,0 +1,13 @@
+module encoder8to3(input wire [7:0]D,output wire [2:0]Y,output wire valid);
+//wire [3:0]d1;
+//wire [3:0]d2;
+wire [1:0]y1;
+wire [1:0]y2;
+wire valid1;
+wire valid2; 
+encoder4to2 enco1(.D(D[7:4]),.Y(y1),.valid(valid1));
+encoder4to2  enco2(.D(D[3:0]),.Y(y2),.valid(valid2));
+assign Y[2]=valid1;
+assign Y[1:0]=valid1?y1:y2;
+assign valid=valid1|valid2;
+endmodule;

@@ -1,8 +1,9 @@
-TOP = decoder2to4
+TOP = encoder8to3 
 
 VERILOG = \
-				./vsrc/02_combinational/decoder2to4.v
-CSRCS = csrc/sim_decoder2to4.cpp
+				./vsrc/02_combinational/encoder4to2.v \
+				./vsrc/02_combinational/encoder8to3.v
+CSRCS = csrc/sim_encoder8to3.cpp
 
 all:
 	verilator \
