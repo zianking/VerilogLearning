@@ -1,11 +1,8 @@
-TOP = adder4
+TOP = decoder2to4
 
 VERILOG = \
-				./vsrc/01_basic_gate/halfadder.v \
-				./vsrc/01_basic_gate/fulladder.v \
-				./vsrc/02_combinational/fulladder_com.v \
-				./vsrc/02_combinational/adder4.v
-CSRCS = csrc/sim_main.cpp
+				./vsrc/02_combinational/decoder2to4.v
+CSRCS = csrc/sim_decoder2to4.cpp
 
 all:
 	verilator \
