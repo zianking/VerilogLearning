@@ -2,4 +2,4 @@ module comparator1(input wire A,input wire B,output wire gt,output wire eq,outpu
 assign gt=A&(!B);
 assign eq=!(A^B);
 assign lt=(!A)&B;
-endmodule;
+endmodule

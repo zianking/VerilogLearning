@@ -12,3 +12,4 @@ encoder4to2(.D(~e),.Y(y),.valid(valid));
 assign eq=~valid;
 assign gt=g[y]&valid;
 assign lt=l[y]&valid;
+endmodule

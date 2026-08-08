@@ -5,4 +5,4 @@ mux2(.a(A[1]),.b(A[3]),.sel(direction),.y(m[2]));
 mux2(.a(A[0]),.b(A[2]),.sel(direction),.y(m[1]));
 mux2(.a(0),.b(A[1]),.sel(direction),.y(m[0]));
 assign Y=shift?m:A;
-endmodule;
+endmodule
