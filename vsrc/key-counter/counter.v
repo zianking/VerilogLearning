@@ -5,6 +5,7 @@ module counter(
     input minus,
     input setzero,
     input setnum,
+    // input [3:0]signal,
     output reg [5:0]num
 );
 wire [3:0]signal;
