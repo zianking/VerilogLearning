@@ -7,7 +7,7 @@ module debounce
     parameter SAMPLE=1000000
 )
 (
-    input reset,
+    input rst_n,
     input clk,
     input key,
     output reg out
@@ -18,8 +18,8 @@ reg op=0;
 reg lastop=0;
 reg [3:0]CS;
 reg [3:0]NS;
-always @(posedge clk or negedge reset)begin
-    if(!reset)begin
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
         cnt<=0;
         sample<=0;
     end
@@ -32,8 +32,8 @@ always @(posedge clk or negedge reset)begin
         else cnt<=cnt+1;
     end
 end
-always @(posedge clk or negedge reset)begin
-    if(!reset)begin
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
         op<=0;
         lastop<=0;
     end
@@ -42,7 +42,7 @@ always @(posedge clk or negedge reset)begin
         op<=key;
     end
 end
-always @(posedge clk or negedge reset)begin
+always @(posedge clk or negedge rst_n)begin
     if(!reset) CS<=IDLE;
     else CS<=NS;
 end
@@ -70,8 +70,8 @@ always @(*)begin
         end
     endcase
 end
-always @(posedge clk or negedge reset)begin
-    if(!reset) out<=0;
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n) out<=0;
     else if(NS===IDLE && CS===RELEASE) out<=1;
     else out<=0;
 end

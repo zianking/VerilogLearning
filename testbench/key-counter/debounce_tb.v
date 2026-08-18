@@ -1,14 +1,14 @@
 `timescale 1ns/1ps
 module debounce_tb;
 reg clk;
-reg reset;
+reg rst_n;
 reg key;
 wire out;
 debounce #(
     .SAMPLE(10)
 )
 dut(
-    .reset(reset),
+    .rst_n(rst_n),
     .clk(clk),
     .key(key),
     .out(out)
@@ -18,7 +18,7 @@ initial begin
     forever #10 clk=~clk;
 end
 initial begin
-    reset=0;
+    rst_n=0;
     key=0;
     #100;
     reset=1;
@@ -29,5 +29,4 @@ initial begin
     #500;
     $finish;
 end
-
 endmodule
