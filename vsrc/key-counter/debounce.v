@@ -3,7 +3,8 @@ module debounce
     parameter IDLE=4'b0001,
     parameter PRESS=4'b0010,
     parameter STABLE=4'b0100,
-    parameter RELEASE=4'b1000
+    parameter RELEASE=4'b1000,
+    parameter SAMPLE=1000000
 )
 (
     input reset,
@@ -24,7 +25,7 @@ always @(posedge clk or negedge reset)begin
     end
     else begin
         sample<=0;
-        if(cnt===1000000)begin
+        if(cnt===SAMPLE)begin
             sample<=1;
             cnt<=0;
         end
