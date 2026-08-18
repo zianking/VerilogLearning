@@ -1,6 +1,6 @@
 module counter(
     input clk,
-    input reset,
+    input rst_n,
     input plus,
     input minus,
     input setzero,
@@ -10,8 +10,8 @@ module counter(
 );
 wire [3:0]signal;
 assign signal={plus,minus,setzero,setnum};
-always @(posedge clk or negedge reset)begin
-    if(!reset)begin
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
         num<=0;
     end
     else begin
