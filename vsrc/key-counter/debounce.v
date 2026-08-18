@@ -43,7 +43,7 @@ always @(posedge clk or negedge rst_n)begin
     end
 end
 always @(posedge clk or negedge rst_n)begin
-    if(!reset) CS<=IDLE;
+    if(!rst_n) CS<=IDLE;
     else CS<=NS;
 end
 always @(*)begin
