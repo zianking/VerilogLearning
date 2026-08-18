@@ -21,7 +21,7 @@ initial begin
     rst_n=0;
     key=0;
     #100;
-    reset=1;
+    rst_n=1;
     #500;
     key=1;
     #500;
